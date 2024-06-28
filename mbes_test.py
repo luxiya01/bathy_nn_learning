@@ -78,17 +78,20 @@ def test(config):
             continue
         
         # Convert data to bathynn format
-        data_src = Data(pos=data['data_src'].reshape(-1, 6))
-        data_tgt = Data(pos=data['data_tgt'].reshape(-1, 6))
-        src_tgt_pose = Data(pos=data['src_tgt_pose'].reshape(-1, 6))
-        indices = Data(x=data['indices'].reshape(-1, 2))
+        #data_src = Data(pos=data['data_src'].reshape(-1, 6))
+        #data_tgt = Data(pos=data['data_tgt'].reshape(-1, 6))
+        #src_tgt_pose = Data(pos=data['src_tgt_pose'].reshape(-1, 6))
+        #indices = Data(x=data['indices'].reshape(-1, 2))
 
+        data_src, data_tgt, src_tgt_pose, indices, sample = data
         data_bathynn = [data_src, data_tgt, src_tgt_pose, indices]
+
         for item in data_bathynn:
             item = item.to(config.device)
         output = model(data_bathynn[0], data_bathynn[1])
 
-        eval_data = data['sample']
+        #eval_data = data['sample']
+        eval_data = sample
         for k, v in eval_data.items():
             if isinstance(v, torch.Tensor):
                 eval_data[k] = v.squeeze(dim=0)

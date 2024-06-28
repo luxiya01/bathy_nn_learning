@@ -22,7 +22,7 @@ VALIDATION_PATH = "data/Circle100Valid"
 TESTING_PATH = "data/Circle100Test"
 
 ## Dataset info
-SIZE_SUBMAP = 8192  # num(points) in a submap
+SIZE_SUBMAP = 7000 #8192  # num(points) in a submap
 IOU_POSITIVE = [0.4, 0.8]  # IoU range for positive pairs
 
 NUM_SUBMAPS = {
@@ -61,7 +61,7 @@ CONFIG = {
 }
 
 ## Training config
-PATH_CKPT = "save_models"
+PATH_CKPT = "finetuning"
 NUM_EPOCH = 50 # total training #epoch, default 100?
 SAVE_EPOCH = 1  # save after each $SAVE_EPOCH$ epochs
 BATCH_SIZE = 16 # 32 is old
@@ -69,7 +69,7 @@ NUM_WORKERS = 4
 DATA_PATH = 'data/'
 
 ## Testing config
-MODEL_PATH = None  # TODO
+MODEL_PATH = 'finetuning/MBES_2023-09-15-11-23-09_epoch_29.pt' # 'sin0627_19.pt'  # TODO
 # parameters
 KEYPOINT_THRESHOLD = 0.7  # threshold of keypoint detector
 MATCHING_THRESHOLD = 0.1  # threshold of Eucledian distance

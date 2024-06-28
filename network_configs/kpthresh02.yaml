@@ -3,3 +3,4 @@ model:
   keypoint_thresh: 0.2
   ransac_iterations: 50000
   ransac_n: 4
+  depth_filter: 3.
